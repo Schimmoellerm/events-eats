@@ -1,0 +1,17 @@
+
+
+#bannerImg {
+    min-height: 225px;
+    width: 100%;
+    background-image: url("../Assets/tempBanner.jpg");
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 75px;
+}
+
+.searchbarContainer{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
