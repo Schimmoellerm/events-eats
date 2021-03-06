@@ -1,5 +1,7 @@
 // enter city and pull up list of events in that city
 
+var dateInputEl = $('#datepicker');
+
 $('#searchBtn').on('click', function(event) {
     event.preventDefault();
     let inputValue = $('#query').val();
@@ -43,6 +45,14 @@ $('#searchBtn').on('click', function(event) {
 
 
 });
+
+// Datepicker widget
+$(function () {
+    $('#datepicker').datepicker({
+      changeMonth: true,
+      changeYear: true,
+    });
+  });
 
 
 // view food button clicked display resturants nearby

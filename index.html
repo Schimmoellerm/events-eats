@@ -9,6 +9,11 @@
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
           crossorigin="anonymous">
     <link rel="stylesheet" href='../events-eats/Assets/style.css'>
+    <!-- jQuery UI <link> tag -->
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
     <title>Events Eats</title>
 </head>
 <body>
@@ -19,7 +24,7 @@
         <p>Enter Zip or City Name and date of event:</p>
         <form id="form"> 
             <input type="text" id="query" placeholder="Search...">
-            <input type="text" id="query" placeholder="Date">
+            <input type="text" id="datepicker" autocomplete = "off" placeholder="Date">
             <button type="submit" id="searchBtn">Search</button>
         </form>
     </div>
@@ -33,4 +38,5 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
         crossorigin="anonymous"></script>
 <script src='./Assets/script.js'></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </html>
