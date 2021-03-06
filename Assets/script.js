@@ -1,12 +1,14 @@
 // enter city and pull up list of events in that city
 
-var dateInputEl = $('#datepicker');
 
 $('#searchBtn').on('click', function(event) {
     event.preventDefault();
     let inputValue = $('#query').val();
-    let ticketmasterUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?city='+inputValue+'&apikey=asJ5IIkFeppppkdFCPGgBB2cJYnYkfCT'
-
+    let dateInputValue =$('#datepicker').val();
+   
+    dateInputValue = dateInputValue + 'T00:00:00Z'
+    let ticketmasterUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?city='+inputValue+'&startDateTime='+dateInputValue+'&apikey=asJ5IIkFeppppkdFCPGgBB2cJYnYkfCT'
+    console.log(dateInputValue)
     fetch(ticketmasterUrl)
     .then(response => response.json())
     .then(data => {
@@ -14,7 +16,7 @@ $('#searchBtn').on('click', function(event) {
         console.log(data._embedded.events)
         
     });
-    
+
     
     
  // when event is clicked display the event name, venue and date of event
@@ -30,15 +32,15 @@ $('#searchBtn').on('click', function(event) {
         let venueLat = data._embedded.events[0]._embedded.venues[0].location.latitude
 
 
-    let resturantUrl = 'https://api.documenu.com/v2/restaurants/search/geo?lat='+venueLat+'&lon='+venueLong+'&distance=5&fullmenu=true'   
-        fetch(resturantUrl, {
-            headers: {
-                'X-API-KEY': 'b0c70c0a6e86ee22a0cd19bb00e652d6'
-            }
-        })
-         .then(response => response.json())
-         .then( data =>
-            console.log(data));
+    // let resturantUrl = 'https://api.documenu.com/v2/restaurants/search/geo?lat='+venueLat+'&lon='+venueLong+'&distance=5&fullmenu=true'   
+    //     fetch(resturantUrl, {
+    //         headers: {
+    //             'X-API-KEY': 'b0c70c0a6e86ee22a0cd19bb00e652d6'
+    //         }
+    //     })
+    //      .then(response => response.json())
+    //      .then( data =>
+    //         console.log(data));
     });
 
 
@@ -51,14 +53,7 @@ $(function () {
     $('#datepicker').datepicker({
       changeMonth: true,
       changeYear: true,
+      dateFormat: 'yy-mm-dd'
     });
   });
-
-
-// view food button clicked display resturants nearby
-
-
-
-
-
 
