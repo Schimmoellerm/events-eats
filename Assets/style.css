@@ -11,6 +11,17 @@ body {
     background-size: cover;
     margin-bottom: 75px;
     background-color: lightgray;
+
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.bannerTitle{
+    color:black;
+    border: 3px solid black;
 }
 
 .input {
