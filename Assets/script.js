@@ -21,8 +21,12 @@ $('#searchBtn').on('click', function(event) {
 // forEach to cycle through eachnew event and display the correct properties to HTML
         events.forEach(function(i) {
             let newEvent = data._embedded.events[i].name;
-            eventsContainer.append("<div class='eventsContainer'>" +
-            "<h5>" + newEvent + "</h5>" + "<p>" + data._embedded.events[i].dates.start.localDate + "</p>" + "<p>" + data._embedded.events[i].dates.start.localTime + "</p>" + "<p>" + data._embedded.events[i]._embedded.venues[0].name + "</p>" + "<button>" + "Find Local Restaraunts" + "</button>")
+            eventsContainer.append("<div class='col customCard'>" +
+                                   "<h5>" + newEvent + "</h5>" + 
+                                   "<p>" + data._embedded.events[i].dates.start.localDate + "</p>" + 
+                                   "<p>" + data._embedded.events[i].dates.start.localTime + "</p>" + 
+                                   "<p>" + data._embedded.events[i]._embedded.venues[0].name + "</p>" + 
+                                   "<button>" + "Find Local Restaraunts" + "</button>")
         })
 
         
