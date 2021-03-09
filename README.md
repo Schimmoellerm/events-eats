@@ -3,7 +3,7 @@
 This application will allow users to plan a trip by choosing an event they plan to attend and display resturaunts around that area.
 
 ![events-eats-gif](Gif Place Holder)
-![Events Eats](https://schimmoellerm.github.io/events-eats/)
+[Events Eats](https://schimmoellerm.github.io/events-eats/)
 ## Instructions
 
 1. User will be presented with a city search input and a date picker widget.

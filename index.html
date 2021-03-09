@@ -19,17 +19,18 @@
 <body>
     
 
-    <figure id = "bannerImg"></figure>
+    <figure class='banner' id = "bannerImg"></figure>
     <div class = "searchbarContainer">
-        <p>Enter Zip or City Name and date of event:</p>
+        <h3>Events Eats</h3>
+        <p>Enter Zip or City Name and Date of Event:</p>
         <form id="form"> 
-            <input type="text" id="query" placeholder="Search...">
-            <input type="text" id="datepicker" class="dateInput" autocomplete = "off" placeholder="Date">
+            <input class='input' type="text" id="query" placeholder="Search...">
+            <input class='input' type="text" id="datepicker" class="dateInput" autocomplete = "off" placeholder="Date">
             <button type="submit" id="searchBtn">Search</button>
         </form>
     </div>
 
-    <div id='eventsContainer'></div>
+    <div class='row' id='eventsContainer'></div>
 
 
 
