@@ -14,7 +14,7 @@ $('#searchBtn').on('click', function(event) {
     .then(data => {
         console.log(data);
         console.log(data._embedded.events)
-        let events = [0, 1, 2, 3, 4,];
+        let events = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
         let eventsContainer = $('#eventsContainer')
         eventsContainer.empty()
 
