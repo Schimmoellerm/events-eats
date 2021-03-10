@@ -38,10 +38,16 @@ body {
 .customCard {
     background-color: silver;
     margin: 10px;
-    min-width: 25vw;
+    min-width: 30vw;
+    max-width: 35vw;
     border-radius: 15px;
     padding: 5px;
     border-color: darkblue;
     border-style: solid;
 }
 
+/* @media screen and (min-width: 960px) {
+    .customCard {
+      min-width: 35vw;
+    }
+  } */
