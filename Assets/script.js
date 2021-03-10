@@ -7,7 +7,7 @@ $('#searchBtn').on('click', function(event) {
     let dateInputValue =$('#datepicker').val();
    
     dateInputValue = dateInputValue + 'T00:00:00Z'
-    let ticketmasterUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?city='+inputValue+'&startDateTime='+dateInputValue+'&apikey=asJ5IIkFeppppkdFCPGgBB2cJYnYkfCT'
+    let ticketmasterUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?size=50&city='+inputValue+'&startDateTime='+dateInputValue+'&sort=date,asc&apikey=asJ5IIkFeppppkdFCPGgBB2cJYnYkfCT'
     console.log(dateInputValue)
     fetch(ticketmasterUrl)
     .then(response => response.json())
