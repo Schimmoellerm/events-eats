@@ -37,23 +37,52 @@ $('#searchBtn').on('click', function(event) {
     
 });
     
- // when event is clicked display the event name, venue and date of event
+ 
     
+$('#eventsContainer').on('click','.eventBtn', function() {
+    let dataLat = $(this).attr("data-lat");
+    let dataLong = $(this).attr("data-long")
+    console.log(dataLat)
+    console.log(dataLong)
 
+
+    renderRestaraunts(dataLat, dataLong);
+})
        
 
+function renderRestaraunts(dataLat, dataLong) {
+    let resturantUrl = 'https://api.documenu.com/v2/restaurants/search/geo?lat='+dataLat+'&lon='+dataLong+'&distance=5&fullmenu=true'   
+    fetch(resturantUrl, {
+        headers: {
+            'X-API-KEY': 'b0c70c0a6e86ee22a0cd19bb00e652d6'
+        }
+    })
+    .then(response => response.json())
+    .then( data => {
+        console.log(data);
+        let eventsContainer = $('#eventsContainer')
+        eventsContainer.empty()
+            let restaraunts = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+            
 
-    // let resturantUrl = 'https://api.documenu.com/v2/restaurants/search/geo?lat='+venueLat+'&lon='+venueLong+'&distance=5&fullmenu=true'   
-    //     fetch(resturantUrl, {
-    //         headers: {
-    //             'X-API-KEY': 'b0c70c0a6e86ee22a0cd19bb00e652d6'
-    //         }
-    //     })
-    //      .then(response => response.json())
-    //      .then( data =>
-    //         console.log(data));
+            
 
+        // forEach to render the restaraunts in a 5 mile radius of the event venue
+            restaraunts.forEach(function(i) {
+                let restarauntName = data.data[i].restaurant_name;
+                let address = data.data[i].address.formatted;
+                let phoneNumber = data.data[i].restaurant_phone;
+                eventsContainer.append("<div class='col customCard'>" +
+                    "<h5>" + restarauntName + "</h5>" + 
+                    "<p>" + address + "</p>" + 
+                    "<p>" + phoneNumber + "</p>")
+            })
+        
 
+    })
+    
+
+}   
 
 
 // Datepicker widget
