@@ -16,6 +16,7 @@ $('#searchBtn').on('click', function(event) {
         console.log(data._embedded.events)
         let events = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
         let eventsContainer = $('#eventsContainer')
+        let scrollBtn = $('.scrollBtn')
         eventsContainer.empty()
 
 // forEach to cycle through eachnew event and display the correct properties to HTML
@@ -29,8 +30,12 @@ $('#searchBtn').on('click', function(event) {
                                    "<p>" + data._embedded.events[i].dates.start.localTime + "</p>" + 
                                    "<p>" + data._embedded.events[i]._embedded.venues[0].name + "</p>" + 
                                    "<button class='eventBtn' data-lat="+venueLat+" data-long="+venueLong+"> Find Local Restaraunts" + "</button>")
-        })
-
+            
+                                })
+            scrollBtn.append("<button id='previous'> <-- Previous </button>" +
+                             "<button id='next'> Next --> </button>")                     
+                                                        
+                                
         
     });
 
