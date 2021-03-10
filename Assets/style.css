@@ -46,6 +46,12 @@ body {
     border-style: solid;
 }
 
+.customCard p{
+
+    line-height: .75;
+
+}
+
 /* @media screen and (min-width: 960px) {
     .customCard {
       min-width: 35vw;
