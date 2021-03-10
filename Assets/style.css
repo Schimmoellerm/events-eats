@@ -50,6 +50,7 @@ body {
     padding: 5px;
     border-color: #a3a375;
     border-style: solid;
+
 }
 
 .customCard p{
@@ -61,6 +62,21 @@ body {
 .eventBtn{
     background-color: #e0e0d1;
     border-radius: 10px;
+}
+
+#previous{
+    background-color: #e0e0d1;
+    border-radius: 10px;
+}
+
+#next{
+    background-color: #e0e0d1;
+    border-radius: 10px;
+} 
+
+.scrollBtn{
+    display: flex;
+    justify-content: space-between;
 
 }
 
