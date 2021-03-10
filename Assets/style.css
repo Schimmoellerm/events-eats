@@ -33,7 +33,13 @@ body {
 
 .searchbarContainer{
     margin-bottom: 5vw;
-} 
+}
+
+#searchBtn{
+
+    background-color: #e0e0d1;
+    border-radius: 10px;
+}
 
 .customCard {
     background-color: #a3a375;
@@ -49,6 +55,12 @@ body {
 .customCard p{
 
     line-height: .75;
+
+}
+
+.eventBtn{
+    background-color: #e0e0d1;
+    border-radius: 10px;
 
 }
 
