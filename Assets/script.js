@@ -21,30 +21,26 @@ $('#searchBtn').on('click', function(event) {
 // forEach to cycle through eachnew event and display the correct properties to HTML
         events.forEach(function(i) {
             let newEvent = data._embedded.events[i].name;
+            let venueLong = data._embedded.events[i]._embedded.venues[0].location.longitude
+            let venueLat = data._embedded.events[i]._embedded.venues[0].location.latitude
             eventsContainer.append("<div class='col customCard'>" +
                                    "<h5>" + newEvent + "</h5>" + 
                                    "<p>" + data._embedded.events[i].dates.start.localDate + "</p>" + 
                                    "<p>" + data._embedded.events[i].dates.start.localTime + "</p>" + 
                                    "<p>" + data._embedded.events[i]._embedded.venues[0].name + "</p>" + 
-                                   "<button>" + "Find Local Restaraunts" + "</button>")
+                                   "<button class='eventBtn' data-lat="+venueLat+" data-long="+venueLong+"> Find Local Restaraunts" + "</button>")
         })
 
         
     });
 
     
+});
     
  // when event is clicked display the event name, venue and date of event
     
-    fetch(ticketmasterUrl)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        console.log(data._embedded.events[0]._embedded.venues[0].location.latitude)
-        console.log(data._embedded.events[0]._embedded.venues[0].location.longitude)
-    
-        let venueLong = data._embedded.events[0]._embedded.venues[0].location.longitude
-        let venueLat = data._embedded.events[0]._embedded.venues[0].location.latitude
+
+       
 
 
     // let resturantUrl = 'https://api.documenu.com/v2/restaurants/search/geo?lat='+venueLat+'&lon='+venueLong+'&distance=5&fullmenu=true'   
@@ -56,12 +52,9 @@ $('#searchBtn').on('click', function(event) {
     //      .then(response => response.json())
     //      .then( data =>
     //         console.log(data));
-    });
 
 
 
-
-});
 
 // Datepicker widget
 $(function () {
