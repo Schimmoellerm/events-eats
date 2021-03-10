@@ -13,34 +13,70 @@ $('#searchBtn').on('click', function(event) {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        console.log(data._embedded.events)
-        let events = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-        let eventsContainer = $('#eventsContainer')
-        let scrollBtn = $('.scrollBtn')
-        eventsContainer.empty()
-
-// forEach to cycle through eachnew event and display the correct properties to HTML
-        events.forEach(function(i) {
-            let newEvent = data._embedded.events[i].name;
-            let venueLong = data._embedded.events[i]._embedded.venues[0].location.longitude
-            let venueLat = data._embedded.events[i]._embedded.venues[0].location.latitude
-            eventsContainer.append("<div class='col customCard'>" +
-                                   "<h5>" + newEvent + "</h5>" + 
-                                   "<p>" + data._embedded.events[i].dates.start.localDate + "</p>" + 
-                                   "<p>" + data._embedded.events[i].dates.start.localTime + "</p>" + 
-                                   "<p>" + data._embedded.events[i]._embedded.venues[0].name + "</p>" + 
-                                   "<button class='eventBtn' data-lat="+venueLat+" data-long="+venueLong+"> Find Local Restaraunts" + "</button>")
+        // console.log(data._embedded.events)
             
-                                })
-            scrollBtn.append("<button id='previous'> <-- Previous </button>" +
-                             "<button id='next'> Next --> </button>")                     
-                                                        
-                                
-        
+            let events = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+            let eventsContainer = $('#eventsContainer')
+            let scrollBtn = $('.scrollBtn')
+            eventsContainer.empty()
+            
+            // forEach to cycle through eachnew event and display the correct properties to HTML
+            events.forEach(function(i) {
+                let newEvent = data._embedded.events[i].name;
+                let venueLong = data._embedded.events[i]._embedded.venues[0].location.longitude
+                let venueLat = data._embedded.events[i]._embedded.venues[0].location.latitude
+                eventsContainer.append("<div class='col customCard'>" +
+                "<h5>" + newEvent + "</h5>" + 
+                "<p>" + data._embedded.events[i].dates.start.localDate + "</p>" + 
+                "<p>" + data._embedded.events[i].dates.start.localTime + "</p>" + 
+                "<p>" + data._embedded.events[i]._embedded.venues[0].name + "</p>" + 
+                "<button class='eventBtn' data-lat="+venueLat+" data-long="+venueLong+"> Find Local Restaraunts" + "</button>")
+                
+            })
+            
+
+
+            scrollBtn.append("<button class='previous'> <-- Previous </button>" +
+            "<button class='next'> Next --> </button>")      
+            
+            $('.scrollBtn').on('click', '.next', function() {
+                getNextEvents(events, data);
+            })
+            
+                       
+    
+            
     });
+    
 
     
+
 });
+
+function getNextEvents(events, data) {
+    let nextEvents = events.map(event => event + 10)
+    let eventsContainer = $('#eventsContainer')
+    eventsContainer.empty()
+    let scrollBtn = $('.scrollBtn')
+    scrollBtn.empty()
+
+    nextEvents.forEach(function(i) {
+        let newEvent = data._embedded.events[i].name;
+        let venueLong = data._embedded.events[i]._embedded.venues[0].location.longitude
+        let venueLat = data._embedded.events[i]._embedded.venues[0].location.latitude
+        eventsContainer.append("<div class='col customCard'>" +
+        "<h5>" + newEvent + "</h5>" + 
+        "<p>" + data._embedded.events[i].dates.start.localDate + "</p>" + 
+        "<p>" + data._embedded.events[i].dates.start.localTime + "</p>" + 
+        "<p>" + data._embedded.events[i]._embedded.venues[0].name + "</p>" + 
+        "<button class='eventBtn' data-lat="+venueLat+" data-long="+venueLong+"> Find Local Restaraunts" + "</button>")
+        
+    })
+
+
+}
+
     
  
     
@@ -99,3 +135,13 @@ $(function () {
     });
   });
 
+
+
+// foor loop for the next and previous buttons to render the next 10 objects
+// let variable = 0
+// for( let i = variable: i <= variable + 10: i++)
+// variable = variable + 10
+
+// let variable = 0
+// for( let i = variable: i <= variable + 10: i--)
+// variable = variable - 10
