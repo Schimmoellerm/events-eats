@@ -24,6 +24,7 @@ $('#searchBtn').on('click', function(event) {
                 let eventsContainer = $('#eventsContainer')
                 let scrollBtn = $('.scrollBtn')
                 eventsContainer.empty()
+                scrollBtn.empty()
                 
                 // forEach to cycle through eachnew event and display the correct properties to HTML
                 events.forEach(function(i) {
