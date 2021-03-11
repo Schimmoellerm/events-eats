@@ -3,6 +3,25 @@ body {
     background-color: honeydew;
 }
 
+h1 {
+    font-family: 'Akaya Telivigala', cursive;
+
+}
+
+p {
+    font-family: 'ABeeZee', sans-serif;
+}
+
+a {
+    color: inherit; 
+    text-decoration: inherit; 
+    
+}  
+
+a:hover{
+    color: black;
+}
+
 #bannerImg {
     min-height: 225px;
     width: 100%;
@@ -36,7 +55,6 @@ body {
 }
 
 #searchBtn{
-
     background-color: #e0e0d1;
     border-radius: 10px;
 }
@@ -54,9 +72,13 @@ body {
 }
 
 .customCard p{
+    line-height: .8;
 
-    line-height: .75;
+}
 
+.customCard h5{
+
+    font-family: 'Akaya Telivigala', cursive;
 }
 
 .eventBtn{
@@ -64,24 +86,18 @@ body {
     border-radius: 10px;
 }
 
-#previous{
-    background-color: #e0e0d1;
-    border-radius: 10px;
-}
-
-#next{
-    background-color: #e0e0d1;
-    border-radius: 10px;
-} 
-
 .scrollBtn{
     display: flex;
     justify-content: space-between;
 
 }
 
-/* @media screen and (min-width: 960px) {
-    .customCard {
-      min-width: 35vw;
-    }
-  } */
+.next{
+    background-color: #e0e0d1;
+    border-radius: 10px;
+}
+
+.previous{
+    background-color: #e0e0d1;
+    border-radius: 10px;
+}
