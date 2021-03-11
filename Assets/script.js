@@ -1,6 +1,6 @@
 // enter city and pull up list of events in that city
 
-
+//Search Button Click Event
 $('#searchBtn').on('click', function(event) {
     event.preventDefault();
     let inputValue = $('#query').val();
@@ -13,6 +13,7 @@ $('#searchBtn').on('click', function(event) {
         alert('please enter a city and date')
     } else {
 
+        //fetch request for ticketmaster API
         fetch(ticketmasterUrl)
         .then(response => response.json())
         .then(data => {
@@ -40,8 +41,7 @@ $('#searchBtn').on('click', function(event) {
                     
                 })
                 
-    
-    
+                //Appends next and previous buttons to HTML
                 scrollBtn.append("<button class='previous'> <-- Previous </button>" +
                 "<button class='next'> Next --> </button>")      
                 
@@ -56,6 +56,7 @@ $('#searchBtn').on('click', function(event) {
     }  
 });
 
+//get next ten events button
 function getNextEvents(events, data) {
     let nextEvents = events.map(event => event + 10)
     let eventsContainer = $('#eventsContainer')
@@ -76,6 +77,7 @@ function getNextEvents(events, data) {
     })
 }
 
+//get previous 10 events button
 function getPreviousEvents(events, data) {
     let nextEvents = events.map(event => event - 10)
     let eventsContainer = $('#eventsContainer')
@@ -96,20 +98,17 @@ function getPreviousEvents(events, data) {
     })
 }
 
-    
- 
-    
+//button click for resturaunts pull
 $('#eventsContainer').on('click','.eventBtn', function() {
     let dataLat = $(this).attr("data-lat");
     let dataLong = $(this).attr("data-long")
     console.log(dataLat)
     console.log(dataLong)
 
-
     renderRestaraunts(dataLat, dataLong);
 })
        
-
+//Resturant Pull from DocuMenu Function
 function renderRestaraunts(dataLat, dataLong) {
     let resturantUrl = 'https://api.documenu.com/v2/restaurants/search/geo?lat='+dataLat+'&lon='+dataLong+'&distance=5&fullmenu=true'   
     fetch(resturantUrl, {
@@ -124,9 +123,6 @@ function renderRestaraunts(dataLat, dataLong) {
         eventsContainer.empty()
             let restaraunts = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
             
-
-            
-
         // forEach to render the restaraunts in a 5 mile radius of the event venue
             restaraunts.forEach(function(i) {
                 let restarauntName = data.data[i].restaurant_name;
@@ -137,11 +133,7 @@ function renderRestaraunts(dataLat, dataLong) {
                     "<p>" + address + "</p>" + 
                     "<p>" + phoneNumber + "</p>")
             })
-        
-
     })
-    
-
 }   
 
 
@@ -153,8 +145,6 @@ $(function () {
       dateFormat: 'yy-mm-dd'
     });
   });
-
-
 
 // foor loop for the next and previous buttons to render the next 10 objects
 // let variable = 0
