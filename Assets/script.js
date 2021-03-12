@@ -1,6 +1,6 @@
 // enter city and pull up list of events in that city
 let events = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
+let restaraunts = [0, 1, 2, 3, 4]
 //Search Button Click Event
 $('#searchBtn').on('click', function(event) {
     event.preventDefault();
@@ -123,7 +123,7 @@ $('#eventsContainer').on('click','.eventBtn', function() {
        
 //Resturant Pull from DocuMenu Function
 function renderRestaraunts(dataLat, dataLong) {
-    let resturantUrl = 'https://api.documenu.com/v2/restaurants/search/geo?lat='+dataLat+'&lon='+dataLong+'&distance=5&fullmenu=true'   
+    let resturantUrl = 'https://api.documenu.com/v2/restaurants/search/geo?lat='+dataLat+'&lon='+dataLong+'&size=50&distance=5&fullmenu=true'   
     fetch(resturantUrl, {
         headers: {
             'X-API-KEY': 'b0c70c0a6e86ee22a0cd19bb00e652d6'
@@ -134,7 +134,7 @@ function renderRestaraunts(dataLat, dataLong) {
         console.log(data);
         let eventsContainer = $('#eventsContainer')
         eventsContainer.empty()
-            let restaraunts = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+            
             
         // forEach to render the restaraunts in a 5 mile radius of the event venue
             restaraunts.forEach(function(i) {
@@ -146,8 +146,63 @@ function renderRestaraunts(dataLat, dataLong) {
                     "<p>" + address + "</p>" + 
                     "<p>" + phoneNumber + "</p>")
             })
-    })
-}   
+            let restarauntBtn = $('.restarauntBtn');
+            let scrollBtn = $('.scrollBtn');
+            scrollBtn.empty();
+            //Appends next and previous buttons to HTML
+            restarauntBtn.append("<button id='restarauntPrev' class='previous'> <-- Previous </button>" +
+            "<button id='restarauntNext' class='next'> Next --> </button>")      
+            
+            $('.restarauntBtn').on('click', '.next', function() {
+                if(restaraunts[4] !== 24) {
+                    console.log("hello")
+                    getNextRestaraunts(data);
+    
+                } 
+            })
+    
+            $('.restarauntBtn').on('click', '.previous', function() {
+                if(restaraunts[0] !== 0) {
+                    console.log('goodbye')
+                    getPreviousRestaraunts(data);
+                }
+            })      
+        });   
+    };
+
+    function getPreviousRestaraunts(data) {
+        restaraunts = restaraunts.map(restaraunts => restaraunts - 5)
+        let eventsContainer = $('#eventsContainer')
+        eventsContainer.empty()
+        
+        restaraunts.forEach(function(i) {
+            let restarauntName = data.data[i].restaurant_name;
+            let address = data.data[i].address.formatted;
+            let phoneNumber = data.data[i].restaurant_phone;
+            eventsContainer.append("<div class='col customCard'>" +
+                "<h5>" + restarauntName + "</h5>" + 
+                "<p>" + address + "</p>" + 
+                "<p>" + phoneNumber + "</p>")
+        })
+    }
+    
+    function getNextRestaraunts(data) {
+        restaraunts = restaraunts.map(restaraunts => restaraunts + 5)
+        let eventsContainer = $('#eventsContainer')
+        eventsContainer.empty()
+        
+        restaraunts.forEach(function(i) {
+            let restarauntName = data.data[i].restaurant_name;
+            let address = data.data[i].address.formatted;
+            let phoneNumber = data.data[i].restaurant_phone;
+            eventsContainer.append("<div class='col customCard'>" +
+                "<h5>" + restarauntName + "</h5>" + 
+                "<p>" + address + "</p>" + 
+                "<p>" + phoneNumber + "</p>")
+        })
+    }
+
+   
 
 
 // Datepicker widget
