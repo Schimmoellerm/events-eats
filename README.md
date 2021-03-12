@@ -17,6 +17,7 @@ This application will allow users to plan a trip by choosing an event they plan 
 * [DocuMenu API](https://documenu.com/dashboard) -DocuMenu API for searching for resturaunts around that location
 * [bootstrap](https://getbootstrap.com/) - Front end framework library for HTML and CSS.
 * [jQuery](https://jquery.com/) - JS library that simplifies JS and HTML interactions.
+* [Google Fonts](https://fonts.gooogle.com) - Google library of fonts.
 * [VSCode](https://code.visualstudio.com/) - Code editing software
 * [GitBash](https://gitforwindows.org/) - Command line interface
 
