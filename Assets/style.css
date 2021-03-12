@@ -71,6 +71,10 @@ a:hover{
 
 }
 
+.customCard:hover{
+    background-color: #999966;
+}
+
 .input {
     font-family: 'Akaya Telivigala', cursive;
 }
@@ -80,7 +84,7 @@ a:hover{
 }
 
 .customCard p{
-    line-height: .8;
+    line-height: 1;
 
 }
 
@@ -120,6 +124,12 @@ a:hover{
 .ui-dialog-titlebar {
     font-family: 'Akaya Telivigala', cursive;
     font-size: 20px;
+}
+
+#eventsContainer {
+    display: flex;
+    justify-content: center;
+
 }
 
 
