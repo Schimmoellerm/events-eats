@@ -136,3 +136,10 @@ a:hover{
 
 }
 
+.restarauntBtn{
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
