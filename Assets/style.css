@@ -98,6 +98,10 @@ a:hover{
     border-radius: 10px;
 }
 
+.eventBtn:hover {
+    background-color: #d6d6c2;
+}
+
 .scrollBtn{
     display: flex;
     justify-content: space-between;
@@ -131,5 +135,4 @@ a:hover{
     justify-content: center;
 
 }
-
 
