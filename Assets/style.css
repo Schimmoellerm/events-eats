@@ -105,4 +105,12 @@ a:hover{
 
 #dialog {
     display: none;
+    font-family: 'Akaya Telivigala', cursive;
 }
+
+.ui-dialog-titlebar {
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 20px;
+}
+
+
