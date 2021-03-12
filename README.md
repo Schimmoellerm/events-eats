@@ -2,14 +2,18 @@
 
 This application will allow users to plan a trip by choosing an event they plan to attend. Clicking on that event will display resturaunts within a 5 mile radius of that event.
 
-![events-eats-gif](Gif Place Holder)
+![events-eats-gif](Assets/Events_Eats.gif)
 [Events Eats](https://schimmoellerm.github.io/events-eats/)
 ## Instructions
 
 1. User will be presented with a city search input and a date picker widget.
 2. Inputing a city and choosing a date will display cards with the names of events coming up.
-3. Clicking one of these events will display resturaunts within a 5 mile radius. 
-5. A JQuery UI dialog box will pop up if incorrect data is input.
+3. A JQuery UI dialog box will pop up if incorrect data is input.
+4. The user can pull the next 10 events or view the previous 10 events.
+5. Clicking one of these events will display five resturaunts within a 5 mile radius.
+6. The user can choose to index to the next five or go back to the previous five. 
+7. If the user clicks the title at the top of the page it will refresh the page.
+
 
 ## Built With
 
