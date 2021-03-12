@@ -10,7 +10,9 @@ $('#searchBtn').on('click', function(event) {
     let ticketmasterUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?size=50&city='+inputValue+'&startDateTime='+dateInputValue+'&sort=date,asc&apikey=asJ5IIkFeppppkdFCPGgBB2cJYnYkfCT'
     console.log(dateInputValue)
     if(inputValue === "" || dateInputValue === 'T00:00:00Z') {
-        alert('please enter a city and date')
+        $( function() {
+            $( "#dialog" ).dialog();
+          } );
     } else {
 
         //fetch request for ticketmaster API

@@ -101,3 +101,8 @@ a:hover{
     background-color: #e0e0d1;
     border-radius: 10px;
 }
+
+
+#dialog {
+    display: none;
+}
