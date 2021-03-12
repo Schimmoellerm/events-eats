@@ -65,6 +65,8 @@ function getNextEvents(events, data) {
     eventsContainer.empty()
     let scrollBtn = $('.scrollBtn')
     scrollBtn.empty()
+    scrollBtn.append("<button class='previous'> <-- Previous </button>" +
+                "<button class='next'> Next --> </button>")
 
     nextEvents.forEach(function(i) {
         let newEvent = data._embedded.events[i].name;
@@ -86,6 +88,8 @@ function getPreviousEvents(events, data) {
     eventsContainer.empty()
     let scrollBtn = $('.scrollBtn')
     scrollBtn.empty()
+    scrollBtn.append("<button class='previous'> <-- Previous </button>" +
+                "<button class='next'> Next --> </button>")
 
     nextEvents.forEach(function(i) {
         let newEvent = data._embedded.events[i].name;
