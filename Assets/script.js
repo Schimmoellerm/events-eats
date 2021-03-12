@@ -1,4 +1,5 @@
 // enter city and pull up list of events in that city
+let events = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 //Search Button Click Event
 $('#searchBtn').on('click', function(event) {
@@ -22,7 +23,6 @@ $('#searchBtn').on('click', function(event) {
             console.log(data);
             // console.log(data._embedded.events)
                 
-                let events = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     
                 let eventsContainer = $('#eventsContainer')
                 let scrollBtn = $('.scrollBtn')
@@ -48,25 +48,32 @@ $('#searchBtn').on('click', function(event) {
                 "<button class='next'> Next --> </button>")      
                 
                 $('.scrollBtn').on('click', '.next', function() {
-                    getNextEvents(events, data);
+                    if(events[9] !== 49) {
+
+                        getNextEvents(data);
+
+                    } 
                 })
 
                 $('.scrollBtn').on('click', '.previous', function() {
-                    getPreviousEvents(events, data);
+                    if(events[0] !== 0) {
+
+                        getPreviousEvents(data);
+                    }
                 })      
         });   
     }  
 });
 
 //get next ten events button
-function getNextEvents(events, data) {
+function getNextEvents(data) {
     events = events.map(event => event + 10)
     let eventsContainer = $('#eventsContainer')
     eventsContainer.empty()
     let scrollBtn = $('.scrollBtn')
     // scrollBtn.empty()
     
-    nextEvents.forEach(function(i) {
+    events.forEach(function(i) {
         let newEvent = data._embedded.events[i].name;
         let venueLong = data._embedded.events[i]._embedded.venues[0].location.longitude
         let venueLat = data._embedded.events[i]._embedded.venues[0].location.latitude
@@ -78,19 +85,18 @@ function getNextEvents(events, data) {
         "<button class='eventBtn' data-lat="+venueLat+" data-long="+venueLong+"> Find Local Restaraunts" + "</button>")    
     })
     console.log(events)
-    console.log(nextEvents)
     console.log(data)
 }
 
 //get previous 10 events button
-function getPreviousEvents(events, data) {
+function getPreviousEvents(data) {
     events = events.map(event => event - 10)
     let eventsContainer = $('#eventsContainer')
     eventsContainer.empty()
     let scrollBtn = $('.scrollBtn')
     // scrollBtn.empty()
     
-    nextEvents.forEach(function(i) {
+    events.forEach(function(i) {
         let newEvent = data._embedded.events[i].name;
         let venueLong = data._embedded.events[i]._embedded.venues[0].location.longitude
         let venueLat = data._embedded.events[i]._embedded.venues[0].location.latitude
