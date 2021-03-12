@@ -21,13 +21,11 @@ $('#searchBtn').on('click', function(event) {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            // console.log(data._embedded.events)
+            
                 
-    
                 let eventsContainer = $('#eventsContainer')
                 let scrollBtn = $('.scrollBtn')
                 eventsContainer.empty()
-                // scrollBtn.empty()
                 
                 // forEach to cycle through eachnew event and display the correct properties to HTML
                 events.forEach(function(i) {
@@ -214,11 +212,3 @@ $(function () {
     });
   });
 
-// foor loop for the next and previous buttons to render the next 10 objects
-// let variable = 0
-// for( let i = variable: i <= variable + 10: i++)
-// variable = variable + 10
-
-// let variable = 0
-// for( let i = variable: i <= variable + 10: i--)
-// variable = variable - 10
